@@ -12,13 +12,13 @@
         <!--一覧-->
         <scene sceneID="g6x-pn-vCg">
             <objects>
-                <tableViewController id="DZm-qU-4Me" sceneMemberID="viewController">
+                <tableViewController id="DZm-qU-4Me" customClass="TableViewController" customModule="original_apri" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jaA-BS-DpJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hHl-tz-scP">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hHl-tz-scP" customClass="ListTableViewCell" customModule="original_apri" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hHl-tz-scP" id="zf1-2s-1c4">
@@ -35,16 +35,19 @@
                     <navigationItem key="navigationItem" title="一覧" id="7na-Oq-Pdo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lmS-1y-iWd">
                             <connections>
-                                <segue destination="wMD-bD-CX0" kind="show" id="9fZ-eg-fhQ"/>
+                                <action selector="add:" destination="DZm-qU-4Me" id="90c-eg-loO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="wMD-bD-CX0" kind="show" identifier="add" id="MSs-Vn-Iox"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtF-Ug-tJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072.8000000000002" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2118" y="139"/>
         </scene>
-        <!--新規追加-->
+        <!--Add View Controller-->
         <scene sceneID="2gl-qe-KjS">
             <objects>
                 <viewController id="wMD-bD-CX0" customClass="AddViewController" customModule="original_apri" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,26 +58,46 @@
                     <view key="view" contentMode="scaleToFill" id="6mB-x3-k6n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUH-91-31Y">
+                                <rect key="frame" x="184" y="207" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-JX-O87">
+                                <rect key="frame" x="209" y="289" width="90" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="to do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVk-XJ-VFN">
+                                <rect key="frame" x="73" y="205" width="69" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="新規追加" id="ccA-6R-FjA">
-                        <barButtonItem key="leftBarButtonItem" title="戻る" id="6fh-s9-ySp">
-                            <connections>
-                                <action selector="modoru" destination="wMD-bD-CX0" id="blu-wY-pOc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <connections>
+                        <outlet property="add" destination="aQd-JX-O87" id="fTJ-wx-y1I"/>
+                        <outlet property="text" destination="bUH-91-31Y" id="KOM-Vd-x4a"/>
+                        <outlet property="todonametext" destination="bUH-91-31Y" id="h9P-Hv-udp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56L-2y-YyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2892" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2844" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rua-dS-Dv1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L1C-aQ-6tB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ltb-G8-6zA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ltb-G8-6zA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -85,7 +108,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujp-BP-OD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1369" y="139"/>
         </scene>
     </scenes>
 </document>
